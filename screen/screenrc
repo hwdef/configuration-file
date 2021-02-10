@@ -1,0 +1,47 @@
+
+# terminfo and termcap for nice 256 color terminal
+# # allow bold colors - necessary for some reason
+#attrcolor b ".I" 
+# # tell screen how to set colors. AB = background, AF=foreground 
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+# # erase background with current bg color 
+#defbce "on"
+
+vbell off  # this is to tell screen not to flash
+altscreen on # back to original screen when quiting VIM or less
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string "%{.kB}%-w%{..M}%n %t%{-}%+w %=%{..B} %H(%l) %{..B} %Y/%m/%d %c:%s "
+#hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+startup_message off
+autodetach on
+defscrollback 10000
+caption splitonly
+caption string "%?%F%{WB}%?%3n %t%?[%h]%?%=%l"
+shelltitle "term"
+bindkey "^[;" screen
+bindkey "^[," prev
+bindkey "^[." next
+bindkey "^[m" other
+bindkey "^[`" select 0
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
+bindkey "^[0" select 10
+bindkey "^[-" select 11
+bindkey "^[=" select 12
+
+bind w windowlist -b # cool, show window list, equal to \ctrl-a "\
+bind ^w windowlist -b
+
+#term rxvt # mouse support
+#caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+#caption always "%{= kw}%-w%{..M}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+#caption always "%{= kw}%-w%{..M}%n %t%{-}%+w %-= @%{G}%H - %LD %d %LM - %c"
+caption always "%{= kw}%-w%{..M}%n %t%{-}%+w %-= @%{G}%{..B} %H - %LD %d %LM - %c"
